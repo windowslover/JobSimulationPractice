@@ -1,0 +1,29 @@
+<html>
+    <body>
+        <h1>Job Simulation</h1>
+        <p>The unique emails are: </p>
+
+        <textarea id="uniqueEmails" rows="10" cols="50">{{uniqueEmails}}</textarea>
+
+        <p>The domains and counts are: </p>
+        <textarea id="domains" rows="10" cols="50">{{domains}}</textarea>
+
+        <div style="margin-top: 20px;">
+            <button class="processButton" >Process CSV</button>
+        </div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+        <script type="text/javascript">
+            $('.processButton').click(function(){
+                
+                $.get("processCSV", function(data){
+
+                    $('#uniqueEmails').text(data["uniqueEmails"]);
+                    $('#domains').text(data["domains"]);
+                });
+
+            });
+        </script>
+        
+    </body>
+</html>
